@@ -1,0 +1,128 @@
+.projects-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px;
+  gap: 20px;
+  flex-wrap: wrap; /* makes responsive */
+}
+.project-box {
+  flex: 1 1 45%;
+  background:#e2f3ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+  color: #2c3e50;  /* 🔥 Ensures all text inside is dark & clear */
+}
+
+.project-box ul,
+.project-box li {
+  color: #2c3e50;  /* Force text color */
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 1;      /* remove any accidental fade */
+}
+
+
+.project-box:hover {
+  transform: translateY(-5px);
+}
+
+.project-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.project-box h3 {
+  margin-top: 20px;
+  color: #34495e;
+}
+
+.project-box ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.image-gallery {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.image-gallery img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #eee;
+  transition: transform 0.2s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+  border-color: #3498db;
+}
+
+.left {
+  order: 1;
+}
+
+.right {
+  order: 2;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .projects-container {
+    flex-direction: column;
+  }
+  .project-box {
+    width: 100%;
+  }
+}
+
+.slider-container {
+  width: 100%;
+  max-width: 500px; /* reduced width */
+  margin: 20px auto;
+}
+
+.slider-container img {
+  width: 90%;   /* not full width */
+  height: 250px; /* fixed smaller height */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.neon-btn {
+  padding: 10px 25px;
+  font-size: 1rem;
+  color:white !important;
+  background: #c4e7ff; /* blue background */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.neon-btn:hover {
+  background: #f4fbff; /* darker blue on hover */
+}

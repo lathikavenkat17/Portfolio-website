@@ -1,0 +1,157 @@
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px 40px;
+  min-height: 600px;
+  background-color: #151934;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #151934; /* full page background */
+  color: #e0e0e0; /* default text color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.space{
+  padding-bottom: 10px;
+}
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #3498db;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px 2px rgba(52, 152, 219, 0.6);
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  width: 45%;
+  margin-bottom: 60px;
+  z-index: 10;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-item.left .wooden-sign {
+  position: relative;
+  right: 12px; /* shift slightly toward the timeline */
+}
+
+
+.timeline-item.right {
+  left: 55%;
+  text-align: left;
+}
+
+/* Small neon horizontal connector line for each item */
+.connector {
+  position: absolute;
+  top: 18px; /* vertically center with wooden-sign */
+  width: 25px;
+  height: 2px;
+  background-color: #40E0D0;
+  box-shadow: 0 0 6px 1px rgba(52, 152, 219, 0.4);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.timeline-item.left .connector {
+  right: -25px;
+}
+
+.timeline-item.right .connector {
+  left: -25px;
+}
+
+.wooden-sign {
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 6px;
+  box-shadow: 0 0 8px 1px rgba(52, 152, 219, 0.6);
+  background: transparent;
+  white-space: nowrap;
+  position: relative;
+  z-index: 10;
+}
+
+.content-box {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: #B0E0E6;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  color: #222;
+}
+
+.date {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+.content-box ul {
+  list-style: none; /* removes the default dot */
+  padding-left: 0;  /* removes left indentation */
+  margin-top: 8px;
+}
+
+.content-box ul li {
+  margin-bottom: 6px;
+  padding-left: 0;
+}
+/* make sure wooden-sign sits above the center line */
+.wooden-sign {
+  position: relative;
+  z-index: 11; /* above the vertical timeline */
+}
+
+/* tiny neon bar attached to the wooden-sign */
+.timeline-item.left .wooden-sign::after,
+.timeline-item.right .wooden-sign::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 3px;              /* thickness of the neon connector */
+  width: 36px;              /* length from wooden-sign toward center line; adjust if needed */
+  background: linear-gradient(90deg, rgba(0,255,255,0.95), rgba(52,152,219,0.95));
+  box-shadow: 0 0 8px rgba(0,255,255,0.6), 0 0 18px rgba(52,152,219,0.28);
+  border-radius: 2px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* put the connector at the correct side so it points to center */
+.timeline-item.left .wooden-sign::after {
+  right: -36px; /* same value as width; move connector to the right of sign */
+}
+.timeline-item.right .wooden-sign::after {
+  left: -36px;  /* same value as width; move connector to the left of sign */
+}
+
+/* If you left the extra .connector div in your JSX, hide it so it doesn't double up */
+.connector { display: none !important; }
+
+/* Icon before the title in the wooden-sign */
+.title-icon {
+  width: 40px;            /* icon size */
+  height: 40px;
+  margin-right: 6px;      /* space between icon and title text */
+  vertical-align: middle; /* aligns icon with text vertically */
+  display: inline-block;  /* ensures it flows inline with title */
+}

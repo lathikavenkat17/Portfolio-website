@@ -1,0 +1,124 @@
+/* Skills.css */
+
+.skills-page {
+  background-color:#151934;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* align top */
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+.skills-container {
+  background-color: #85a7ac;
+  padding: 20px;
+  border-radius: 16px;
+
+  /* Remove solid border to avoid sharp line */
+  border: none;
+
+  /* Neon glow (dull) with inset for inner glow */
+  box-shadow:
+    inset 0 0 10px rgba(85, 201, 195, 0.6),
+    0 0 12px rgba(85, 201, 195, 0.3);
+
+  display: inline-block;
+  max-width: 90vw;
+  transition: box-shadow 0.3s ease;
+
+  animation: neonPulse 3s infinite ease-in-out;
+
+  margin-bottom: 20px;  /* space below container to separate from certificates */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 110px);
+  grid-template-rows: repeat(3, 110px);
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-item {
+  width: 130px;
+  height: 130px;
+  animation-name: float;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 120px) !important;
+    grid-template-rows: none !important;
+  }
+  .skills-container {
+    padding: 15px !important;
+    /* Removed padding-bottom: 1px */
+  }
+}
+
+@media (max-width: 400px) {
+  .skills-grid {
+    grid-template-columns: repeat(1, 150px) !important;
+  }
+}
+
+/* Neon pulse animation */
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 10px rgba(85, 201, 195, 0.6),
+      0 0 12px rgba(85, 201, 195, 0.3);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 14px rgba(85, 201, 195, 0.8),
+      0 0 20px rgba(85, 201, 195, 0.5);
+  }
+}
+/* Certificates section fix */
+.certificates-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  background-color: #111;
+  color: #eee;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.down-arrow-container { /* space below the grid */
+  cursor: pointer !important;
+}
+.down-arrow-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px; /* space below the grid */
+}
+.down-arrow {
+  font-size: 2rem;
+  color: #3498db;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
